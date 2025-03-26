@@ -1,11 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MotionService } from './Services/motion.service';
 import { MotionData } from './Model/MotionData.model';
 
 @Component({
   selector: 'app-motion',
+  standalone: true, // Añade esta línea
+  imports: [CommonModule], // Añade esta línea
   templateUrl: './motion.component.html',
-  styleUrl: './motion.component.scss'
+  styleUrls: ['./motion.component.scss'] // o .css si usas CSS
 })
 export class MotionComponent implements OnInit, OnDestroy {
   
