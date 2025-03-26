@@ -1,12 +1,26 @@
 <div class="sensor-container">
   <div class="sensor-section">
-    <h2>Acelerómetro</h2>
+    <h2 class="sensor-title">Sensor de Movimiento</h2>
     <div class="sensor-data">
-      <p>X: {{motionData.acceleration?.x ?? 'No data'}}</p>
-      <p>Y: {{motionData.acceleration?.y ?? 'No data'}}</p>
-      <p>Z: {{motionData.acceleration?.z ?? 'No data'}}</p>
+      <div class="sensor-data-axis sensor-data-axis-x">
+        <p>X: {{motionData.acceleration?.x ?? 'No data'}} m/s²</p>
+      </div>
+      <div class="sensor-data-axis sensor-data-axis-y">
+        <p>Y: {{motionData.acceleration?.y ?? 'No data'}} m/s²</p>
+      </div>
+      <div class="sensor-data-axis sensor-data-axis-z">
+        <p>Z: {{motionData.acceleration?.z ?? 'No data'}} m/s²</p>
+      </div>
+    </div>
+    
+    <div class="step-counter">
+      <h3>Contador de Pasos</h3>
+      <div class="step-count">
+        <span>{{motionData.stepCount ?? 0}}</span>
+      </div>
+      <button (click)="resetStepCount()" class="reset-button">
+        Reiniciar Contador
+      </button>
     </div>
   </div>
-  </div>
-
-
+</div>

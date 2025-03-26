@@ -5,8 +5,8 @@ import { MotionData } from './Model/MotionData.model';
 
 @Component({
   selector: 'app-motion',
-  standalone: true, // Añade esta línea
-  imports: [CommonModule], // Añade esta línea
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './motion.component.html',
   styleUrls: ['./motion.component.scss'] 
 })
@@ -25,5 +25,10 @@ export class MotionComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.motionS.stopMotionDetection();
+  }
+
+  // Método para reiniciar el contador de pasos
+  resetStepCount() {
+    this.motionS.resetStepCount();
   }
 }

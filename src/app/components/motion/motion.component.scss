@@ -102,6 +102,54 @@ $color-z-axis: #3182ce;
   font-style: italic;
 }
 
+// Estilos existentes...
+
+// Nuevos estilos para el contador de pasos
+.step-counter {
+  margin-top: 2rem;
+  text-align: center;
+  background-color: lighten($color-background-primary, 5%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.step-count {
+  font-size: 3rem;
+  font-weight: bold;
+  color: $color-text-primary;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color-text-secondary, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.reset-button {
+  background-color: $color-x-axis;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: darken($color-x-axis, 10%);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
+
 // Responsive adjustments
 @media screen and (max-width: 600px) {
   .sensor-data {
