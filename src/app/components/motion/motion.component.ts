@@ -8,7 +8,7 @@ import { MotionData } from './Model/MotionData.model';
   standalone: true, // Añade esta línea
   imports: [CommonModule], // Añade esta línea
   templateUrl: './motion.component.html',
-  styleUrls: ['./motion.component.scss'] // o .css si usas CSS
+  styleUrls: ['./motion.component.scss'] 
 })
 export class MotionComponent implements OnInit, OnDestroy {
   
