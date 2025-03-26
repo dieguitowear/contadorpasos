@@ -206,3 +206,17 @@ $color-z-axis: #00ffff; // Cian neón
     padding: 1rem;
   }
 }
+// [Resto del código anterior se mantiene igual]
+
+.sensor-data {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; // Aumenté la separación entre ejes
+  padding: 1rem; // Añadí padding para más espacio
+
+  &-axis {
+    padding: 1.5rem; // Aumenté el padding interno
+    border-radius: 12px; // Bordes más redondeados
+    // [Resto del código se mantiene igual]
+  }
+}

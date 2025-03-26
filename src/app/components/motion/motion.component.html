@@ -3,13 +3,13 @@
     <h2 class="sensor-title">Sensor de Movimiento</h2>
     <div class="sensor-data">
       <div class="sensor-data-axis sensor-data-axis-x">
-        <p>X: {{motionData.acceleration?.x ?? 'No data'}} m/s²</p>
+        <p>X: {{motionData.acceleration?.x | number:'1.0-2'}} m/s²</p>
       </div>
       <div class="sensor-data-axis sensor-data-axis-y">
-        <p>Y: {{motionData.acceleration?.y ?? 'No data'}} m/s²</p>
+        <p>Y: {{motionData.acceleration?.y | number:'1.0-2'}} m/s²</p>
       </div>
       <div class="sensor-data-axis sensor-data-axis-z">
-        <p>Z: {{motionData.acceleration?.z ?? 'No data'}} m/s²</p>
+        <p>Z: {{motionData.acceleration?.z | number:'1.0-2'}} m/s²</p>
       </div>
     </div>
     
