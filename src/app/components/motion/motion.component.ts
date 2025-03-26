@@ -32,9 +32,5 @@ export class MotionComponent implements OnInit, OnDestroy {
   resetStepCount() {
     this.motionS.resetStepCount()
   }
-
-  updateThreshold() {
-    this.motionS.calibrateStepThreshold(this.threshold)
-  }
 }
 
