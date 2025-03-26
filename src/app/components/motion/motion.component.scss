@@ -1,18 +1,19 @@
-// Variables de color
-$color-background-primary: #f0f4f8;
-$color-background-secondary: #ffffff;
-$color-text-primary: #1a365d;
-$color-text-secondary: #4a5568;
+// Paleta de colores estilo Gamer
+$color-background-primary: #0a0a0a;
+$color-background-secondary: #1a1a1a;
+$color-text-primary: #00ff41; // Verde neón
+$color-text-secondary: #00ffff; // Cian neón
 
-$color-x-axis: #e53e3e;
-$color-y-axis: #38a169;
-$color-z-axis: #3182ce;
+$color-x-axis: #ff0055; // Rosa neón
+$color-y-axis: #00ff41; // Verde neón
+$color-z-axis: #00ffff; // Cian neón
 
 // Mixins para ejes
 @mixin axis-style($base-color) {
-  background-color: lighten($base-color, 40%);
+  background-color: rgba($base-color, 0.1);
   border-left: 4px solid $base-color;
-  color: darken($base-color, 10%);
+  color: $base-color;
+  box-shadow: 0 0 10px rgba($base-color, 0.5);
 }
 
 // Estilos base
@@ -21,9 +22,10 @@ $color-z-axis: #3182ce;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: gray;
-  font-family: 'Arial', sans-serif;
+  background: linear-gradient(45deg, $color-background-primary, #111);
+  font-family: 'Orbitron', 'Arial', sans-serif; // Fuente que recuerda a juegos
   padding: 1rem;
+  color: $color-text-primary;
 }
 
 .sensor-section {
@@ -31,13 +33,18 @@ $color-z-axis: #3182ce;
   max-width: 500px;
   background-color: $color-background-secondary;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid $color-text-primary;
+  box-shadow: 
+    0 0 15px rgba($color-text-primary, 0.5), 
+    inset 0 0 20px rgba($color-text-primary, 0.3);
   padding: 2rem;
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 
+      0 0 25px rgba($color-text-primary, 0.7), 
+      inset 0 0 30px rgba($color-text-primary, 0.5);
   }
 }
 
@@ -47,9 +54,10 @@ $color-z-axis: #3182ce;
   font-size: 1.75rem;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
   margin-bottom: 1.5rem;
   position: relative;
+  text-shadow: 0 0 10px rgba($color-text-primary, 0.7);
 
   &::after {
     content: '';
@@ -57,9 +65,9 @@ $color-z-axis: #3182ce;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
+    width: 100px;
     height: 3px;
-    background-color: $color-text-primary;
+    background: linear-gradient(to right, transparent, $color-text-primary, transparent);
   }
 }
 
@@ -74,10 +82,33 @@ $color-z-axis: #3182ce;
     text-align: center;
     font-size: 1.125rem;
     font-weight: 600;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle at center, 
+        rgba(255,255,255,0.1) 0%, 
+        transparent 70%
+      );
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
     &:hover {
       transform: scale(1.05);
+      
+      &::before {
+        opacity: 1;
+      }
     }
 
     &-x {
@@ -94,30 +125,21 @@ $color-z-axis: #3182ce;
   }
 }
 
-.sensor-units {
-  text-align: center;
-  color: $color-text-secondary;
-  font-size: 0.875rem;
-  margin-top: 1rem;
-  font-style: italic;
-}
-
-// Estilos existentes...
-
-// Nuevos estilos para el contador de pasos
+// Estilos para contador de pasos
 .step-counter {
   margin-top: 2rem;
   text-align: center;
-  background-color: lighten($color-background-primary, 5%);
+  background-color: rgba($color-background-primary, 0.8);
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 2px solid $color-text-secondary;
+  box-shadow: 0 0 15px rgba($color-text-secondary, 0.5);
 }
 
 .step-count {
   font-size: 3rem;
   font-weight: bold;
-  color: $color-text-primary;
+  color: $color-text-secondary;
   margin: 1rem 0;
   display: flex;
   justify-content: center;
@@ -125,23 +147,47 @@ $color-z-axis: #3182ce;
   background-color: rgba($color-text-secondary, 0.1);
   padding: 1rem;
   border-radius: 8px;
+  border: 1px solid $color-text-secondary;
+  text-shadow: 0 0 10px rgba($color-text-secondary, 0.7);
 }
 
 .reset-button {
   background-color: $color-x-axis;
-  color: white;
-  border: none;
+  color: $color-background-primary;
+  border: 2px solid $color-x-axis;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: bold;
   text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg, 
+      transparent, 
+      rgba(255,255,255,0.3), 
+      transparent
+    );
+    transition: all 0.3s ease;
+  }
 
   &:hover {
     background-color: darken($color-x-axis, 10%);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba($color-x-axis, 0.5);
+
+    &::before {
+      left: 100%;
+    }
   }
 
   &:active {
