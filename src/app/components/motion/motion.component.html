@@ -22,5 +22,29 @@
         Reiniciar Contador
       </button>
     </div>
+
+    <div class="calibration-controls">
+      <h3>Calibración</h3>
+      <div class="slider-container">
+        <label for="threshold">Sensibilidad: {{threshold}}</label>
+        <input 
+          type="range" 
+          id="threshold" 
+          min="0.5" 
+          max="5" 
+          step="0.1" 
+          [(ngModel)]="threshold" 
+          (change)="updateThreshold()"
+        >
+      </div>
+      <div class="calibration-info">
+        <p>Ajusta la sensibilidad según tu forma de caminar:</p>
+        <ul>
+          <li>Valores más bajos: más sensible (puede detectar falsos pasos)</li>
+          <li>Valores más altos: menos sensible (puede no detectar algunos pasos)</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
+
